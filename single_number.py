@@ -24,3 +24,5 @@ def single_number(nums):
     for pair in num_count.items():
         if pair[1] == 1:
             return pair[0]
+
+            

@@ -20,16 +20,26 @@ Explanation:
 """
 
 def isHappy(n):
-        while n != 1: 
-            digits = [int(x) for x in str(n)]
 
-            square_digits = [i*i for i in digits]
-            
-            n = sum(square_digits)
-            
-            continue
-            
-        return True
+    nums_set = set() 
+
+    while n != 1: 
+        digits = [int(x) for x in str(n)]
+
+        square_digits = [i*i for i in digits]
+        
+        n = sum(square_digits)
+
+        if n in nums_set:
+            return False
+        else:
+            nums_set.add(n)
+        
+        continue
+        
+    return True
+
+#was confused by "it loops endlessly in a cycle" - got runtime errors?
 
 def is_happy_recursive(n): 
     if n == 1: 
