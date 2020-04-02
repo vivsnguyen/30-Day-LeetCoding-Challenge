@@ -35,8 +35,6 @@ def isHappy(n):
         else:
             nums_set.add(n)
         
-        continue
-        
     return True
 
 #was confused by "it loops endlessly in a cycle" - got runtime errors?
