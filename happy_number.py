@@ -39,12 +39,12 @@ def isHappy(n):
 
 #was confused by "it loops endlessly in a cycle" - got runtime errors?
 
-def is_happy_recursive(n): 
-    if n == 1: 
-        return True
+# def is_happy_recursive(n): 
+#     if n == 1: 
+#         return True
     
-    digits = [int(x) for x in str(n)]
+#     digits = [int(x) for x in str(n)]
 
-    square_digits = [i*i for i in digits]
+#     square_digits = [i*i for i in digits]
 
-    return is_happy_recursive(sum(square_digits))
+#     return is_happy_recursive(sum(square_digits))
