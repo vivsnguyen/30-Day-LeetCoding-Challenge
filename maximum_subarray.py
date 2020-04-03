@@ -31,3 +31,6 @@ def max_sub_array(nums):
         overall_max = max(current_max, overall_max)
 
     return overall_max
+
+def max_sub_array_divide_and_conquer(nums):
+    pass
