@@ -24,7 +24,7 @@ def max_sub_array(nums):
 
     #if all numbers negative
     elif all([True if num < 0 else False for num in nums]):
-        return max(nums)
+        return overall_max
 
     for num in nums:
         current_max = max(num, current_max + num)
