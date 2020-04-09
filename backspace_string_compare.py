@@ -46,7 +46,4 @@ def backspace_compare(str_S, str_T):
                 new_str.pop()
         return "".join(new_str)   
 
-    s = backspace(str_S)
-    t = backspace(str_T)
-
-    return s == t
+    return backspace(str_S) == backspace(str_T)
