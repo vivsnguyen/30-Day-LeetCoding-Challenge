@@ -40,21 +40,28 @@ Explanation: In this case, no transaction is done,
 i.e. max profit = 0.
 """
 
-def max_profit(prices_list):
-    buy_price = prices_list[0]
+# def max_profit(prices_list):
+#     buy_price = prices_list[0]
 
+#     max_profit = 0
+
+#     if max(prices_list) == prices_list[0]:
+#         return max_profit
+
+#     for price in prices_list:
+#         buy_price = min(min_price, price)
+
+#         current_profit = price - min_price
+
+#         max_profit = max(max_profit, current_profit)
+
+#     return max_profit
+
+def max_profit(prices):
     max_profit = 0
 
-    if max(prices_list) == prices_list[0]:
-        return max_profit
-
-    for price in prices_list:
-        buy_price = min(min_price, price)
-
-        current_profit = price - min_price
-
-        max_profit = max(max_profit, current_profit)
-
+    for i in range(len(prices)-1):
+        current_profit = prices[i+1]-prices[i]
+        if current_profit > 0:
+            max_profit += current_profit
     return max_profit
-
-    #??????????
