@@ -20,11 +20,30 @@ represented by the number of edges between them.
 """
 
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
-def diameterOfBinaryTree(root):
-    pass
+class Solution:
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        self.diameter = 0
+        self.get_diameter(root)
+        
+        return self.diameter
+    
+    def get_diameter(self, node):
+        #depth-first search
+        
+        if node == None:
+            return 0
+
+        left_height = self.get_diameter(node.left)
+        right_height = self.get_diameter(node.right)
+
+        current_diameter = left_height + right_height
+        
+        self.diameter = max(self.diameter, current_diameter)
+        
+        return max(left_height, right_height) + 1
