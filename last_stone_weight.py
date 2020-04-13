@@ -41,4 +41,17 @@ or by sorting some list of stones every time we
 take a turn.
 """
 def last_stone_weight(stones):
-    pass
+    while len(stones) > 1:
+        stones.sort()
+        y = stones.pop()
+        x = stones.pop()
+
+        # if y == x:
+        #     continue
+        # else:
+        #     stones.append(y-x)
+
+        if x < y:
+            stones.append(y-x)
+            
+    return stones[0] if stones else 0
