@@ -50,5 +50,30 @@ the total left shift times (may be negative if the final result
 is right shift), and perform it once.
 """
 
-def stringShift(s, shift):
-    pass
+    # for i in range(len(shift)):
+    #     num = shift[i][1] #amount shifted
+
+    #     if shift[i][0] == 0: #left shift
+    #         s = s[num:] + s[:num]
+    #     elif shift[i][0] == 1: #right shift
+    #         s = s[num:] + s[:num]
+    #     print(shift[i])
+    #     print(s)
+    # return s
+
+    #initial attempt - needed to draw things out on paper
+
+def string_shift(s, shift):
+
+    chars = [char for char in s]
+
+    rotations = sum([sh[1] if sh[0]==1 else -sh[1] for sh in shift]) % len(s)
+
+    if rotations > 0: #right rotation
+        chars = chars[-rotations:] + chars[:-rotations]
+
+    else: #left rotation
+        chars = chars[rotations:] + chars[:rotations]
+
+    return "".join(chars)
+
