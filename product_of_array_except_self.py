@@ -21,6 +21,7 @@ purpose of space complexity analysis.)
 from functools import reduce
 
 #initial solution
+#O(n^2)
 def product_except_self_initial(nums):
     mults = []
 
@@ -37,6 +38,7 @@ def product_except_self_initial(nums):
     return [multiply(num_list) for num_list in mults]
 
 #another solution - needs reduce
+#O(n^2)
 def product_except_self_reduce(nums):
     mults = []
 
@@ -46,6 +48,7 @@ def product_except_self_reduce(nums):
 
     return [reduce((lambda x, y: x * y), num_list) for num_list in mults]
 
+#O(n) time
 def product_except_self(nums):
 
     products = []
