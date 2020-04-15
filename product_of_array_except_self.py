@@ -18,7 +18,9 @@ Could you solve it with constant space complexity?
 (The output array does not count as extra space for the 
 purpose of space complexity analysis.)
 """
-def product_except_self(nums):
+
+#initial solution
+def product_except_self_initial(nums):
     mults = []
 
     for i in range(len(nums)):
@@ -33,4 +35,19 @@ def product_except_self(nums):
 
     return [multiply(num_list) for num_list in mults]
 
-    
+def product_except_self(nums):
+
+    products = []
+    p = 1
+
+    for i in range(len(nums)): 
+        products.append(p)
+        p = p * nums[i]
+
+    p = 1
+
+    for i in range(len(nums)-1, -1, -1):
+        products[i] = products[i] * p
+        p = p * nums[i]
+
+    return products
