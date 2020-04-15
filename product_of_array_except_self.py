@@ -18,6 +18,7 @@ Could you solve it with constant space complexity?
 (The output array does not count as extra space for the 
 purpose of space complexity analysis.)
 """
+from functools import reduce
 
 #initial solution
 def product_except_self_initial(nums):
@@ -34,6 +35,16 @@ def product_except_self_initial(nums):
         return total
 
     return [multiply(num_list) for num_list in mults]
+
+#another solution - needs reduce
+def product_except_self_reduce(nums):
+    mults = []
+
+    for i in range(len(nums)):
+        to_mult = nums[i+1:] + nums[:i]
+        mults.append(to_mult)
+
+    return [reduce((lambda x, y: x * y), num_list) for num_list in mults]
 
 def product_except_self(nums):
 
