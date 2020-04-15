@@ -19,4 +19,18 @@ Could you solve it with constant space complexity?
 purpose of space complexity analysis.)
 """
 def product_except_self(nums):
-    pass
+    mults = []
+
+    for i in range(len(nums)):
+        to_mult = nums[i+1:] + nums[:i]
+        mults.append(to_mult)
+
+    def multiply(numbers):  
+        total = 1
+        for x in numbers:
+            total *= x  
+        return total
+
+    return [multiply(num_list) for num_list in mults]
+
+    
