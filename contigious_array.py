@@ -18,5 +18,27 @@ Note: The length of the given binary array will not
 exceed 50,000.
 """
 
+# if sum([1 if num==1 else -1 for num in nums]) == 0:
+#         return len(nums)
+
 def find_max_length(nums):
-    pass
+    sums_dict = {}
+    sum_num = 0
+    length = 0
+
+    for i in range(len(nums)):
+        if nums[i] == 1:
+            sum_num += 1
+        else:
+            sum_num -= 1
+            
+        if sum_num == 0: #if all sum to 0, equal amount of 0's and 1's
+            length = i + 1
+
+        if sum_num in sums_dict:
+            length = max(length, i - sums_dict[sum_num])
+
+        else:
+            sums_dict[sum_num] = i
+
+    return length
