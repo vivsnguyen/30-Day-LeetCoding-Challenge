@@ -35,7 +35,8 @@ class ListNode:
 # class Solution:
 #     def middleNode(self, head: ListNode) -> ListNode: 
 
-def middle_node(linked_list):
+# def middle_node(linked_list):
+def middle_node(head):
     count = 1
         
     count_head = head

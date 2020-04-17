@@ -25,3 +25,4 @@ Output: 3
 """
 
 def num_islands(grid):
+    pass
