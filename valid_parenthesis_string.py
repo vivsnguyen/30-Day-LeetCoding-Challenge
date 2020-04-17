@@ -32,5 +32,40 @@ Output: True
 Note:
 The string size will be in the range [1, 100].
 """
-def check_valid_string():
-    pass
+def check_valid_string(s):
+    lst = list(s)
+
+    left_parens = []
+    stars = []
+
+    for i in range(len(lst)):
+        if lst[i] == "(":
+            left_parens.append(i)
+
+        elif lst[i] == "*":
+            stars.append(i)
+
+        else: # if ")"
+            if left_parens:
+                left_parens.pop()
+
+            elif stars:
+                stars.pop()
+
+            else:
+                return False
+
+
+    while left_parens:
+        if not stars:
+            return False
+    
+        elif left_parens[-1] < stars[-1]:
+            left_parens.pop()
+            stars.pop()
+
+        else:
+            return False
+
+    return True
+
