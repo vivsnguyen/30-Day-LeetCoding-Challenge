@@ -23,4 +23,23 @@ Output: -1
 """
 
 def search(nums, target):
-    pass
+    if not nums:
+            return -1
+        
+    min_index = 0
+    max_index = len(nums) - 1
+    
+    while min_index <= max_index:
+        mid_index = max_index + min_index // 2
+
+        if nums[mid_index] == target:
+            return mid_index
+
+         if mid_index > target:
+            # Target is to the left, so move ceiling to the left
+            max_index = guess_index
+        else:
+            # Target is to the right, so move floor to the right
+            min_index = guess_index
+
+    return -1
