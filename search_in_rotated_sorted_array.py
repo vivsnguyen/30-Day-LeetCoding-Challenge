@@ -21,25 +21,29 @@ Example 2:
 Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 """
+#binary search
 
 def search(nums, target):
     if not nums:
             return -1
         
-    min_index = 0
-    max_index = len(nums) - 1
+    left = 0
+    right = len(nums) - 1
     
-    while min_index <= max_index:
-        mid_index = max_index + min_index // 2
+    while left <= right:
+        mid = right + left // 2
 
-        if nums[mid_index] == target:
-            return mid_index
+        if nums[mid] == target:
+            return mid
 
-         if mid_index > target:
-            # Target is to the left, so move ceiling to the left
-            max_index = guess_index
+        elif nums[left] <= nums[mid] :
+            if nums[left] <= target <= nums[mid]:
+                right = mid - 1
+            else:
+                left = mid + 1
         else:
-            # Target is to the right, so move floor to the right
-            min_index = guess_index
-
+            if nums[mid] <= target <= nums[right]:
+                left = mid + 1
+            else:
+                right = mid - 1
     return -1
