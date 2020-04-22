@@ -23,3 +23,16 @@ What about storing sum frequencies in a hash table? Will it be useful?
    Hide Hint #4  
 sum(i,j)=sum(0,j)-sum(0,i), where sum(i,j) represents the sum of all the elements from index i to j-1. Can we use this property to optimize it.
 """
+def subarray_sum(nums, k):
+        count = 0
+        sums = 0
+        sums_dict = {}
+        
+        sums_dict[0] = 1 #?
+        
+        for i in range(len(nums)):
+            sums += nums[i]
+            count += sums_dict.get(sums-k,0)
+            sums_dict[sums] = sums_dict.get(sums,0) + 1
+            
+        return count
