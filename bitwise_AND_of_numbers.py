@@ -12,5 +12,15 @@ Input: [0,1]
 Output: 0
 """
 
+#bitwise operators
+#techdose video - explanation
+
 def range_bitwise_and(m,n):
-    pass
+    count = 0
+    while m != n:
+        #shift until prefix
+        m = m >> 1
+        n = n >> 1
+        count += 1
+        
+    return m << count
