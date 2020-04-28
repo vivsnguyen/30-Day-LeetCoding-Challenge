@@ -42,5 +42,24 @@ The values of preorder are distinct.
 # class Solution:
 #     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
 
-def bst_from_preorder(preorder):
-    pass
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
+        if not preorder:
+            return None
+        
+        return self.createBST(preorder, 0, len(preorder))
+    
+    def createBST(self, preorder, l, r):
+        if l >= r:
+            return None
+        
+        root = TreeNode(preorder[l])
+        i = l+1
+        
+        while(i < r and preorder[i] < root.val):
+            i += 1
+    
+        root.left = self.createBST(preorder, l+1, i)
+        root.right = self.createBST(preorder, i, i + (r-i))
+        
+        return root
