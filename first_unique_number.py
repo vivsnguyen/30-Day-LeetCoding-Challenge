@@ -73,6 +73,9 @@ Use queue and check that first element of the queue is always unique.
    Hide Hint #3  
 Use set or heap to make running time of each function O(logn).
 """
+#popleft vs pop
+
+from collections import deque
 
 class FirstUnique:
 
@@ -83,22 +86,23 @@ class FirstUnique:
         
         for num in nums:
             self.nums_dict[num] = self.nums_dict.get(num, 0) + 1
+        
 
     def showFirstUnique(self) -> int:
         while self.q and self.nums_dict[self.q[0]] > 1:
-            self.q.pop()
+            self.q.popleft()
         
         if not self.q:
             return -1
         
         return self.q[0]
+        
 
     def add(self, value: int) -> None:
         self.nums_dict[value] = self.nums_dict.get(value, 0) + 1
         
         if self.nums_dict[value] == 1:
             self.q.append(value)
-        
     
 
 # Your FirstUnique object will be instantiated and called as such:
